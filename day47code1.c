@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    char str1[100], str2[100];
+    int freq[26] = {0};
+    int i, flag = 1;
+
+    scanf("%s", str1);
+    scanf("%s", str2);
+
+    for (i = 0; str1[i] != '\0'; i++)
+        freq[str1[i] - 'a']++;
+
+    for (i = 0; str2[i] != '\0'; i++)
+        freq[str2[i] - 'a']--;
+
+    for (i = 0; i < 26; i++) {
+        if (freq[i] != 0) {
+            flag = 0;
+            break;
+        }
+    }
+
+    if (flag)
+        printf("Anagrams");
+    else
+        printf("Not anagrams");
+
+    return 0;
+}
